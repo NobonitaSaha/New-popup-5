@@ -50,16 +50,21 @@
 
 		<script>
     document.addEventListener("DOMContentLoaded", function () {
-        if (!getCookie("acceptedCookies")) {
-            document.getElementById("cookiePopup").classList.add("show");
-        } else {
-            // If cookies have already been accepted, load content after 3 seconds
-            setTimeout(function () {
-                console.log("Content uploaded after 3 seconds");
-                // Add your code here to load website images and content
-            }, 3000);
-        }
-    });
+    if (!getCookie("acceptedCookies")) {
+        document.getElementById("cookiePopup").classList.add("show");
+    } else {
+        // If cookies have already been accepted, hide the overlay
+        document.querySelector(".cookie-overlay").style.display = "none";
+        document.querySelector(".cookie-overlay-2").style.display = "none";
+
+        // If cookies have already been accepted, load content after 3 seconds
+        setTimeout(function () {
+            console.log("Content uploaded after 3 seconds");
+            // Add your code here to load website images and content
+        }, 3000);
+    }
+});
+
 
     function acceptCookies() {
     document.getElementById("cookiePopup").classList.remove("show");
